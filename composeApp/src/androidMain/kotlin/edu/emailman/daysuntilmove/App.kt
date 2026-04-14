@@ -33,20 +33,25 @@ import androidx.core.content.edit
 @Preview
 fun App() {
     val context = LocalContext.current
-    val prefs = remember { context.getSharedPreferences("move_prefs", Context.MODE_PRIVATE) }
-    val isoFmt = remember { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) }
-    val displayFmt = remember { SimpleDateFormat("MMMM d, yyyy", Locale.getDefault()) }
+    val prefs = remember { context.getSharedPreferences("move_prefs",
+        Context.MODE_PRIVATE) }
+    val isoFmt = remember { SimpleDateFormat("yyyy-MM-dd",
+        Locale.getDefault()) }
+    val displayFmt = remember { SimpleDateFormat("MMMM d, yyyy",
+        Locale.getDefault()) }
 
     var moveDateStr by remember {
         mutableStateOf(prefs.getString("move_date", "") ?: "")
     }
 
-    val todayStr = remember { displayFmt.format(Calendar.getInstance().time) }
+    val todayStr = remember {
+        displayFmt.format(Calendar.getInstance().time) }
 
     val daysUntil: Long? = remember(moveDateStr) {
         if (moveDateStr.isEmpty()) null
         else runCatching {
-            val moveDate = isoFmt.parse(moveDateStr) ?: return@runCatching null
+            val moveDate =
+                isoFmt.parse(moveDateStr) ?: return@runCatching null
             val today = Calendar.getInstance().apply {
                 set(Calendar.HOUR_OF_DAY, 0)
                 set(Calendar.MINUTE, 0)
@@ -62,10 +67,12 @@ fun App() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+            verticalArrangement = Arrangement.spacedBy(16.dp,
+                Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Field 1: Projected move date — tap to open date picker, persisted in SharedPreferences
+            // Field 1: Projected move date — tap to open date picker,
+            // persisted in SharedPreferences
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -81,7 +88,8 @@ fun App() {
                                 cal.set(year, month, day)
                                 val picked = isoFmt.format(cal.time)
                                 moveDateStr = picked
-                                prefs.edit { putString("move_date", picked) }
+                                prefs.edit { putString("move_date",
+                                    picked) }
                             },
                             cal.get(Calendar.YEAR),
                             cal.get(Calendar.MONTH),
@@ -90,12 +98,14 @@ fun App() {
                     }
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Projected Move Date", style = MaterialTheme.typography.labelLarge)
+                    Text("Projected Move Date",
+                        style = MaterialTheme.typography.labelLarge)
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = if (moveDateStr.isEmpty()) "Tap to set date"
                         else runCatching {
-                            displayFmt.format(isoFmt.parse(moveDateStr)!!)
+                            displayFmt.format(
+                                isoFmt.parse(moveDateStr)!!)
                         }.getOrDefault(moveDateStr),
                         style = MaterialTheme.typography.headlineSmall
                     )
@@ -105,16 +115,19 @@ fun App() {
             // Field 2: Today's date
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Today's Date", style = MaterialTheme.typography.labelLarge)
+                    Text("Today's Date",
+                        style = MaterialTheme.typography.labelLarge)
                     Spacer(modifier = Modifier.height(4.dp))
-                    Text(todayStr, style = MaterialTheme.typography.headlineSmall)
+                    Text(todayStr,
+                        style = MaterialTheme.typography.headlineSmall)
                 }
             }
 
             // Field 3: Days until move
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Days Until Move", style = MaterialTheme.typography.labelLarge)
+                    Text("Days Until Move",
+                        style = MaterialTheme.typography.labelLarge)
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = when {
