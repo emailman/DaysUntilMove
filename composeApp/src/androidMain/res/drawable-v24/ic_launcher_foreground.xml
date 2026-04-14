@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Cargo box body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M16,28 L69,28 L69,67 L16,67 Z"/>
+
+    <!-- Cargo box horizontal slats -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CFD8DC"
+        android:strokeWidth="1.5"
+        android:pathData="M16,38 L69,38"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CFD8DC"
+        android:strokeWidth="1.5"
+        android:pathData="M16,48 L69,48"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CFD8DC"
+        android:strokeWidth="1.5"
+        android:pathData="M16,58 L69,58"/>
+
+    <!-- Cab body -->
+    <path
+        android:fillColor="#E3F2FD"
+        android:pathData="M69,67 L69,34 L84,34 L93,46 L93,67 Z"/>
+
+    <!-- Windshield -->
+    <path
+        android:fillColor="#90CAF9"
+        android:pathData="M71,37 L83,37 L90,47 L90,60 L71,60 Z"/>
+
+    <!-- Cab door separation line -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#BBDEFB"
+        android:strokeWidth="1"
+        android:pathData="M71,37 L71,67"/>
+
+    <!-- Chassis bar -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M14,67 L93,67 L93,71 L14,71 Z"/>
+
+    <!-- Rear wheel -->
+    <path
+        android:fillColor="#37474F"
+        android:pathData="M25,76 A8,8,0,1,0,41,76 A8,8,0,1,0,25,76 Z"/>
+    <!-- Rear hub -->
+    <path
+        android:fillColor="#ECEFF1"
+        android:pathData="M29,76 A4,4,0,1,0,37,76 A4,4,0,1,0,29,76 Z"/>
+
+    <!-- Front wheel -->
+    <path
+        android:fillColor="#37474F"
+        android:pathData="M73,76 A8,8,0,1,0,89,76 A8,8,0,1,0,73,76 Z"/>
+    <!-- Front hub -->
+    <path
+        android:fillColor="#ECEFF1"
+        android:pathData="M77,76 A4,4,0,1,0,85,76 A4,4,0,1,0,77,76 Z"/>
+
+    <!-- Exhaust stack -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M20,20 L24,20 L24,28 L20,28 Z"/>
+
+</vector>
